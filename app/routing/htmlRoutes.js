@@ -1,14 +1,13 @@
-// Your html-routes.js file should include two routes:
-
 var path = require('path');
+var express = require('express');
+var router = express.Router();
 
-module.exports = function (app) {
-    app.get('/survey', function (req, res) {
+    router.get('/survey', function (req, res) {
         res.sendFile(path.join(__dirname + '/../public/survey.html'));
     });
 
-    app.use(function (req, res) {
+    router.get('/', function (req, res) {
         res.sendFile(path.join(__dirname + '/../public/home.html'));
     });
 
-}
+module.exports = router;
