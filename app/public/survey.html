@@ -216,14 +216,15 @@
 
 					$.post("/api/new/friends", userData, function (data) {
 						console.log(userData);
+						$.post("api/friends", function (data) {
+							$("#matchName").text(data.name);
+							$('#matchImg').attr("src", data.photo);
+							$("#resultsModal").modal('toggle');
+							console.log(data.name);
+						});
 					})
 
-					$.get("api/best/friends", function (data) {
-						$("#matchName").text(data.name);
-						$('#matchImg').attr("src", data.photo);
-						$("#resultsModal").modal('toggle');
-						console.log(data.name);
-					})
+
 
 				} else {
 					alert("Please fill out all fields before submitting!");
